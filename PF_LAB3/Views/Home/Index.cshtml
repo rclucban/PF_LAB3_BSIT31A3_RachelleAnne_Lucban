@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Greed Island - Welcome";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">
+        <span style="color:var(--gi-red);">WELCOME TO</span>
+        <span style="color:var(--gi-gold);">GREED ISLAND</span>
+    </h1>
+
+    <img src="https://via.placeholder.com/800x300/333/ffc107?text=GREED+ISLAND+START+SCREEN"
+         alt="Greed Island Theme Banner"
+         class="img-fluid gi-card mb-5"
+         style="border-radius: 10px;">
+
+    <div class="gi-card p-4 mx-auto" style="max-width: 800px;">
+        <h2>The Card Management System</h2>
+        <p class="lead">
+            This is the Card Management System for Greed Island. Use the navigation above to manage the
+            collection of rare cards, including **Spell** and **Equipment** cards, as outlined in the game's rules.
+        </p>
+
+        <hr style="border-top: 2px solid var(--gi-red);">
+
+        <p>
+            **Start your adventure!** Explore the <a asp-controller="Cards" asp-action="Index" style="color: var(--gi-gold); font-weight: bold;">Card Catalog</a>.
+        </p>
+    </div>
+</div>

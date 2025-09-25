@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PF_LAB3.Models.Card>
+
+@{
+    ViewData["Title"] = "Card Catalog";
+}
+
+<h1 class="text-center" style="color:var(--gi-red);">GREED ISLAND CARD CATALOG</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-warning gi-card" style="font-weight: bold; border-color: var(--gi-red);">
+        + Add New Card (In-Memory)
+    </a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card gi-card h-100">
+                <img src="@item.CharacterImageUrl" class="card-img-top" alt="@item.CharacterName" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:var(--gi-gold);">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text text-muted">@Html.DisplayFor(modelItem => item.Type) | Rarity: @Html.DisplayFor(modelItem => item.Rarity)</p>
+                    <p class="card-text">Character: <strong style="color:var(--gi-red);">@Html.DisplayFor(modelItem => item.CharacterName)</strong></p>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

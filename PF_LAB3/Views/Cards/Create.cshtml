@@ -1,0 +1,43 @@
+﻿@model PF_LAB3.Models.Card
+
+@{
+    ViewData["Title"] = "Create Card";
+}
+
+<h1 class="text-center" style="color:var(--gi-gold);">CREATE NEW CARD</h1>
+<h4 class="text-center" style="color:var(--gi-red);">Note: This will only work until the app restarts.</h4>
+
+<hr style="border-top: 2px solid var(--gi-red);">
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card gi-card p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="control-label" style="color:var(--gi-gold);"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Rarity" class="control-label" style="color:var(--gi-gold);"></label>
+                    <input asp-for="Rarity" class="form-control" />
+                    <span asp-validation-for="Rarity" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <input type="submit" value="Create Card" class="btn btn-lg btn-warning gi-card" />
+                    <a asp-action="Index" class="btn btn-outline-light ms-3">Back to Catalog</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
